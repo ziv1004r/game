@@ -11,17 +11,17 @@ img = pygame.image.load(IMAGE)
 clock = pygame.time.Clock()
 circle_x = 10
 circle_y = WINDOW_W / 2
-step = 10
+add = 10
 finish = False
 
 while not finish :
   screen.blit(img, (0,0))
   pygame.draw.circle(screen,(255,255,255),[circle_x,circle_y],10)
-  circle_x += step
+  circle_x += 10
   if circle_x > WINDOW_H :
-    step = -10
+    add = -10
   if circle_x < 0 :
-    step = 10
+    add = 10
  
       
   pygame.display.flip()
