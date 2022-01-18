@@ -14,6 +14,8 @@ circle_y = WINDOW_W / 2
 add = 10
 finish = False
 
+# main loop
+
 while not finish :
   screen.blit(img, (0,0))
   pygame.draw.circle(screen,(255,255,255),[circle_x,circle_y],10)
