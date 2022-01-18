@@ -2,29 +2,32 @@ import pygame
 
 WINDOW_W = 768
 WINDOW_H = 1366
-IMAGE = 'ima.jpg'
+IMAGE = 'gameback.jpg'
 pygame.init()
 size = (WINDOW_H , WINDOW_W)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("GTA V")
+pygame.display.set_caption("Mitko")
 img = pygame.image.load(IMAGE)
-
-y = 0
-x = 0
+clock = pygame.time.Clock()
+circle_x = 10
+circle_y = WINDOW_W / 2
+step = 10
 finish = False
+
 while not finish :
   screen.blit(img, (0,0))
-  
-#   for i in range (10):
-  for i in range (0,600,50):
-      y += 50
-      pygame.draw.line(screen,(255,255,255),[0,0],[600,i],8)
+  pygame.draw.circle(screen,(255,255,255),[circle_x,circle_y],10)
+  circle_x += step
+  if circle_x > WINDOW_H :
+    step = -10
+  if circle_x < 0 :
+    step = 10
+ 
+      
   pygame.display.flip()
-#   for i in range (10):
-#       x += 50
-#       pygame.draw.line(screen,(0,255,100),(x,0),(x,432))
   for event in pygame.event.get():
     if event.type ==pygame.QUIT:
       finish = True
+  clock.tick(20)
   
 pygame.quit()
