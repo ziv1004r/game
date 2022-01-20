@@ -10,7 +10,7 @@ png = pygame.image.load(r"C:\Users\pc\game\amo.png")
 png = pygame.transform.scale(png,(50,80))
 shot = 'shot.png.png'
 shot = pygame.transform.scale(png,(40,60))
-pygame.display.set_caption("Mitko")
+pygame.display.set_caption("Mitko ")
 img = pygame.image.load(IMAGE)
 clock = pygame.time.Clock()
 circle_x = 10
