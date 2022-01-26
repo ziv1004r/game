@@ -1,17 +1,17 @@
 import pygame
 
 # screen size 
-WINDOW_W = 1000
-WINDOW_H = 800
+WINDOW_W = 1336
+WINDOW_H = 765
 WINDOW_SIZE = (WINDOW_W, WINDOW_H)
 
 pygame.init()
 screen = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption("My First Game")
+pygame.display.set_caption("ziv - game ")
 
 # www.pngaaa.com
-bk_image = pygame.image.load("background.jpg")
-ship_image = pygame.image.load("ship.png")
+bk_image = pygame.image.load("gameback.jpg")
+ship_image = pygame.image.load("amo.png")
 ship_image = pygame.transform.scale(ship_image, (50, 80)) 
 laser_image = pygame.image.load("laser2.png")
 laser_image = pygame.transform.scale(laser_image, (10, 20)) 
@@ -29,14 +29,6 @@ laser_list = []
 play = True
 
 
-# laser_list = [[121,780],[171,780]]
-# i=1
-# l=[171,10]
-# l[0] = 171
-# l[1] = 10
-
-
-# prints all the laser on the screen
 def print_lasers():
   for i in range(len(laser_list)):
     l = laser_list[i]
@@ -59,6 +51,10 @@ while play:
         ship_x -= x_step
       if event.key == pygame.K_RIGHT:
         ship_x += x_step
+      if event.key == pygame.K_UP :
+        ship_y -= 10
+      if event.key == pygame.K_DOWN:
+        ship_y += 10
       if event.key == pygame.K_SPACE:
         laser_list.append([ship_x+21,ship_y])
 
