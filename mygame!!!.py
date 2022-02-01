@@ -1,13 +1,20 @@
 import pygame
+import time
+from pygame import mixer
 
 # screen size 
 WINDOW_W = 1336
-WINDOW_H = 765
+WINDOW_H = 600
 WINDOW_SIZE = (WINDOW_W, WINDOW_H)
 
+
 pygame.init()
+mixer.init()
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("ziv - game ")
+background_music = pygame.mixer.Sound("mis.mp3")
+pygame.mixer.music.load("mis.mp3")
+pygame.mixer.Channel(1).play(background_music)
 
 # www.pngaaa.com
 bk_image = pygame.image.load("gameback.jpg")
@@ -15,7 +22,6 @@ ship_image = pygame.image.load("amo.png")
 ship_image = pygame.transform.scale(ship_image, (50, 80)) 
 laser_image = pygame.image.load("laser2.png")
 laser_image = pygame.transform.scale(laser_image, (10, 20)) 
-
 clock = pygame.time.Clock()
 
 circle_x = 10
@@ -56,12 +62,13 @@ while play:
       if event.key == pygame.K_DOWN:
         ship_y += 10
       if event.key == pygame.K_SPACE:
+        shot_sound = pygame.mixer.Sound("ero.mp3")
+        pygame.mixer.music.load("ero.mp3")
+        pygame.mixer.music.play()
         laser_list.append([ship_x+21,ship_y])
-
   screen.blit(ship_image,(ship_x,ship_y))
   pygame.draw.circle(screen,(255,255,255),(circle_x , circle_y),10)
   print_lasers()
-
   circle_x +=circle_x_step
   if circle_x > WINDOW_W:
     circle_x_step = -10
@@ -72,5 +79,4 @@ while play:
 
 
   clock.tick(10)
-
 pygame.quit()
