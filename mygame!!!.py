@@ -16,8 +16,8 @@ mixer.init()
 screen = pygame.display.set_mode(WINDOW_SIZE)
 myfont = pygame.font.SysFont('Comic Sans MS', 30)
 pygame.display.set_caption("ziv - game ")
-background_music = pygame.mixer.Sound("mis.mp3")
-pygame.mixer.music.load("mis.mp3")
+background_music = pygame.mixer.Sound("stv.mp3")
+pygame.mixer.music.load("stv.mp3")
 pygame.mixer.Channel(1).play(background_music)
 
 # www.pngaaa.com
@@ -49,6 +49,10 @@ def print_lasers():
       print("hit")
       sc +=1
       circle_x = 0
+      background_music = pygame.mixer.Sound("steve.mp3")
+      pygame.mixer.music.load("steve.mp3")
+      pygame.mixer.Channel(2).play(background_music)
+
 def is_laser_hit(laser_pos):
   return abs(laser_pos[0]-circle_x) <30 and abs(laser_pos[1]-circle_y) <30 
 
